@@ -1,0 +1,87 @@
+.con-container ul li{
+    padding: 0.3rem;
+    background: #fff;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+}
+.con-xiao{
+    background: #4397f7;
+    border-radius: 2px;
+    padding: 1px 2px;
+    font-size: 0.2rem;
+    font-style: normal;
+    color: #fff;
+    margin-right: 5px;
+    float: left;
+    margin-top: 0.07rem;
+    /* vertical-align: text-bottom; */
+}
+.con-listtop{
+    font-size: 0.3rem;
+}
+.con-listtop:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.con-listtop p{
+    font-size: 0.32rem;
+    float: left;
+}
+.con-listtop span{
+    float: right;
+    color: #999;
+}
+.show-info {
+  margin-top: 0.16rem;
+  display: flex;
+  align-items: center;
+}
+.show-info .progress {
+  margin-right: 0.1rem;
+  width: 100%;
+}
+.con-flex{
+    display: flex;
+    display: -webkit-flex;
+}
+.con-flex > div{
+    flex: 1;
+}
+.con-flex span{
+    color: #999;
+    font-size: 0.26rem;
+}
+.con-flexleft b{
+    display: block;
+    font-size: 0.5rem;
+    font-weight: normal;
+    color: #ff3838;
+}
+.con-flexleft b i{
+    font-style: normal;
+    font-size: 0.3rem;
+}
+.con-flexcenter{
+    padding-top: 0.22rem;
+}
+.con-flexcenter b{
+    display: block;
+    font-weight: normal;
+    font-size: 0.35rem;
+}
+.con-flexright {
+    padding-top: 0.25rem;
+}
+.con-flexright a,.con-flexright a:active{
+    width: 2rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    border: none;
+    float: right;
+    background: #f80!important;
+}
+.con-flexright a span{
+    color: #fff;
+    font-size: 0.3rem;
+}
