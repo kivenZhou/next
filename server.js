@@ -8,7 +8,7 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 app.prepare()
-.then(() => {
+.then(() => { 
     const server = new Koa()
     const router = new Router()
 
