@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
-require('es6-promise').polyfill();
+require('es6-promise').polyfill()
+import { getCookie } from '../tool/Util'
   
 //发送GET请求  
 export function getFetch(url, params){  
@@ -15,7 +16,7 @@ export function getFetch(url, params){
         fetch(url + str, {  
             method : 'GET',
             headers:{
-                token: '',
+                token: getCookie('userToken'),
                 Accept: 'application/json;charset=UTF-8',
                 clientId: 'XXD_FRONT_END',
                 clientTime: new Date().getTime()
@@ -38,21 +39,20 @@ export function getFetch(url, params){
 }  
       
 //发送POST请求  
-export function postFetch(url, params){  
-    var str = ''; 
-    if(typeof params === 'object' && params){  
-        Object.keys(params).forEach(function(val){  
-            str += val + '=' + encodeURIComponent(params[val]) + '&';  
-        })  
-    } 
+export function postFetch(url, params, type){  
+    var typeStyle = type ? type : 'POST'
     return new Promise((resolve, reject)=> {
         fetch(url, {  
-            method : 'POST',  
+            method : typeStyle,  
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+                "Content-Type": "application/json;charset=UTF-8",
+                token: getCookie('userToken'),
+                Accept: 'application/json;charset=UTF-8',
+                clientId: 'XXD_FRONT_END',
+                clientTime: new Date().getTime()
             },
             credentials: 'include',
-            body : str  
+            body : JSON.stringify(params)  
         }).then(function(res){  
             if(res.ok){  
                 res.json().then(function(data){  

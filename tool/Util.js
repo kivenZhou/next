@@ -9,40 +9,40 @@ const formatDate = function(str){
 //  存储
 const localItem = function (key, value) {
     if (arguments.length == 1) {
-        return localStorage.getItem(key);
+        return localStorage.getItem(key)
     } else {
-        return localStorage.setItem(key, value);
+        return localStorage.setItem(key, value)
     }
 };
 //  删除存储
 const removeLocalItem = function (key) {
     if (key) {
-        return localStorage.removeItem(key);
+        return localStorage.removeItem(key)
     }
-    return localStorage.removeItem();
+    return localStorage.removeItem()
 };
 //  获取cookie中的值
 const getCookie = function(cookiename){ 
     if (process.browser){
-        let cookiestring = document.cookie; 
-        let start = cookiestring.indexOf(cookiename + '='); 
+        let cookiestring = document.cookie
+        let start = cookiestring.indexOf(cookiename + '=') 
         if(start == -1){
-            return null; 
+            return null
         }   //   找不到 
-        start += cookiename.length + 1; 
-        let end = cookiestring.indexOf("; ",start); 
+        start += cookiename.length + 1;
+        let end = cookiestring.indexOf("; ",start)
         if(end == -1){
-            return unescape(cookiestring.substring(start));
+            return unescape(cookiestring.substring(start))
         }    
-        return unescape(cookiestring.substring(start, end)); 
+        return unescape(cookiestring.substring(start, end))
     }
 }
 //  删除cookie中的值
 const delCookie = (name)=> {
-    var exp = new Date();
-    exp.setTime(exp.getTime() + (-1 * 24 * 60 * 60 * 1000));
-    var cval = getCookie(name);
-    document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+    var exp = new Date()
+    exp.setTime(exp.getTime() + (-1 * 24 * 60 * 60 * 1000))
+    var cval = getCookie(name)
+    document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString()
 }
 
-export {formatDate,localItem,removeLocalItem,getCookie,delCookie};
+export { formatDate, localItem, removeLocalItem, getCookie, delCookie }
