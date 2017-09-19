@@ -28,6 +28,7 @@ function moduleDir (m) {
 
 module.exports = {
   webpack: (config, { dev }) => {
+    
     config.resolve.extensions = ['.web.js', '.js', '.json']
 
     config.module.rules.push(

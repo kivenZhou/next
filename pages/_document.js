@@ -1,11 +1,9 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-
 export default class MyDocument extends Document {
   static async getInitialProps (ctx) {
     const props = await Document.getInitialProps(ctx)
     return { ...props }
   }
-
   render () {
     return (
      <html>

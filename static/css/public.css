@@ -63,15 +63,17 @@ a{
 ol,ul{
     list-style:none;
 }
-
-.am-list-body{
-    background: none;
-    border: none;
+.red{
+    color: #f00;
 }
-.am-navbar-light{
-    background: #f7f7f8 linear-gradient(0deg,rgba(0,0,0,.15) .5px,transparent .5px);
-    height: 1rem;
-    margin-bottom: 8px;
+.fs15{
+    font-size: 0.5rem;
+}
+.fs10{
+    font-size: 0.4rem;
+}
+.bold{
+    font-weight: bold;
 }
 /* Make clicks pass-through */
 #nprogress {

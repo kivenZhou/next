@@ -45,4 +45,11 @@ const delCookie = (name)=> {
     document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString()
 }
 
-export { formatDate, localItem, removeLocalItem, getCookie, delCookie }
+//  获取url中？后面的参数
+const getQueryString = (name)=> { 
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+    var r = window.location.search.substr(1).match(reg); 
+    if (r != null) return decodeURI(r[2]); return null; 
+} 
+
+export { formatDate, localItem, removeLocalItem, getCookie, delCookie, getQueryString }
