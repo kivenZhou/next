@@ -6,7 +6,7 @@
 下载项目到本地:
 
 ```bash
-$ git clone https://github.com/kivenZhou/next 
+$ git clone https://github.com/kivenZhou/next.git
 ```
 
 切换到目录并运行:
@@ -17,3 +17,4 @@ $ npm run dev
 ```
 
 ## 目录结构
+
