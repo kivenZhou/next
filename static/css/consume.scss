@@ -1,0 +1,224 @@
+.con-container ul li{
+    padding: 0.3rem;
+    position: relative;
+    background: #fff;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+}
+.con-xiao{
+    background: #4397f7;
+    border-radius: 2px;
+    padding: 0px 3px;
+    font-size: 0.2rem;
+    font-style: normal;
+    color: #fff;
+    margin-right: 5px;
+    float: left;
+    margin-top: 0.07rem;
+    /* vertical-align: text-bottom; */
+}
+.con-listtop{
+    font-size: 0.3rem;
+    :after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    p{
+        font-size: 0.34rem;
+        float: left;
+        max-width: 3.4rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    span{
+        float: right;
+        color: #8e8e93;
+    }
+}
+.show-info {
+    margin-top: 0.16rem;
+    display: flex;
+    align-items: center;
+    .progress {
+        margin-right: 0.1rem;
+        width: 100%;
+    }
+}
+.con-flex{
+    display: flex;
+    display: -webkit-flex;
+    div{
+        flex: 1;
+    }
+    span {
+        color: #8e8e93;
+        font-size: 0.31rem;
+    }
+}
+.con-flexleft b{
+    display: block;
+    font-size: 0.5rem;
+    font-weight: normal;
+    color: #ff3838;
+    i{
+        font-style: normal;
+        font-size: 0.31rem;
+    }
+}
+.con-flexcenter{
+    padding-top: 0.22rem;
+    b{
+        display: block;
+        font-weight: normal;
+        font-size: 0.35rem;
+    }
+}
+
+.con-flexright {
+    padding-top: 0.25rem;
+    a, a:active {
+        width: 1.9rem;
+        height: 0.75rem;
+        line-height: 0.75rem;
+        border: none;
+        margin-top: 0.2rem;
+        border-radius: 6px;
+        float: right;
+        background: #ff6c00!important;
+        span{
+            color: #fff;
+            font-size: 0.34rem;
+        }
+    }
+}
+.disnone{
+    display: none;
+}
+.con-container .stoped{
+    .con-listtop{
+        color: #999;
+        span{
+            display: none;
+        }
+    }
+    .con-xiao{
+        background: #c3c3c3;
+    }   
+    .show-info{
+        display: none;
+    }
+    .disnone{
+        display: block;
+        flex: 1.4;
+    }
+    .disblock{
+        display: none;
+    }
+    :after{
+        content: " ";
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        background: url('static/imgs/buy-none.png') no-repeat center;
+        background-size: cover;
+        right: 0.3rem;
+        margin-right: -2px;
+        top: 10%;
+        border-radius: 50%;
+    }
+}
+
+.am-navbar{
+    height: 1rem!important;
+}
+.am-list-body{
+    border-top: none!important;
+    margin-top: 0.2rem;
+}
+.am-list-footer{
+    padding: 0!important;
+}
+.am-progress-outer{
+    color: #ccc;
+    border-radius: 5px;
+}
+.am-progress-bar{
+    border-radius: 5px;
+}
+
+.info-contant{
+    background: #fff;
+    padding: 0.3rem;
+    margin-top: 0.2rem
+}
+.info-top{
+    border-bottom: 1px solid #e2e2e2;
+    display: table;
+    width: 100%;
+    padding-bottom: 0.2rem;
+    h3, p{
+        display: table-cell;
+        height: 100%;
+        width: 80%;
+        border-collapse: separate;
+        font-size: 18px!important;
+        font-family: "Microsoft YaHei";
+        font-weight: 300;
+    }
+    p{
+        text-align: right;
+        b{
+            padding: 0.1rem 0.15rem;
+            font-size: 0.25rem;
+            color: #fff;
+            background: #4397f7;
+            border-radius: 3px;
+        }
+    }
+}
+.info-bottom{
+    margin-top: 0.3rem;
+    ul {
+        li{
+            font-weight: 300;
+            line-height: 0.6rem;
+        }
+    }
+    p{
+        font-size: 0.31rem;
+        i{
+            font-style: normal;
+        }
+    }
+}
+.tabel-cell{
+    display: table;
+    width: 100%;
+    b{
+        display: table-cell;
+        border-collapse: separate;
+        width: 1.2rem;
+        height: 100%;
+    }
+}
+
+.det-info{
+    width: 100%;
+    .table-cell{
+        display: table;
+        width: 100%;
+        > div{
+            display: table-cell;
+        }
+        .progress{
+            width: 90%;
+        }
+        .am-progress-bar{
+            height: 10px;
+            border: .1rem solid #108ee9;
+        }
+    }
+}

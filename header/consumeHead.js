@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
 import Header from '../components/consume/Header'
+import consumeScss from '../static/css/consume.scss'
 
 export default class Headers extends Component {
     constructor() {
@@ -14,7 +15,7 @@ export default class Headers extends Component {
             <div>
                 <Head>
                     <link rel='stylesheet' type='text/css' href='../../static/css/public.css' />
-                    <link rel='stylesheet' type='text/css' href="../../static/css/consume.css" />
+                    <style dangerouslySetInnerHTML={{ __html: consumeScss }} />
                 </Head>
                 <Header title={ this.props.title } />
             </div>
