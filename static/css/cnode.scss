@@ -1,0 +1,43 @@
+.cnode-container{
+    min-height: 100%;
+    ul{
+        li{
+            display: flex;
+            padding: 0.2rem;
+            margin-top: 0.2rem;
+            img{
+                height: 1rem;
+                display: block;
+                border-radius: 50%;
+                border: 1px solid #e2e2e2;
+            }
+            .cnode-title{
+                font-size: 0.3rem;
+                width: 73%;
+                overflow: hidden;
+                margin-left: 0.3rem;
+                p{
+                    line-height: 0.5rem;
+                    span{
+                        background: #108ee9;
+                        padding: 0.05rem 0.1rem;
+                        font-size: 0.2rem;
+                        color: #fff;
+                        border-radius: 2px;
+                        margin-right: 0.2rem;
+                    }
+                    :last-child{
+                        font-size: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+.am-list-body{
+    margin-top: 0.2rem;
+    border-top: none!important;
+}
+.am-navbar-light{
+    border-bottom: 1px solid #108ee9;
+}

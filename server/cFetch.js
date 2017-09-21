@@ -15,13 +15,14 @@ export function getFetch(url, params){
     return new Promise((resolve, reject)=> {
         fetch(url + str, {  
             method : 'GET',
+            mode: 'cors', 
             headers:{
                 token: getCookie('userToken'),
                 Accept: 'application/json;charset=UTF-8',
                 clientId: 'XXD_FRONT_END',
                 clientTime: new Date().getTime()
             },
-            credentials: 'include'  
+            // credentials: 'include'  
         }).then(function(res){  
             if(res.ok){  
                 res.json().then(function(data){  

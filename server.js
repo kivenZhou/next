@@ -21,6 +21,14 @@ app.prepare()
 
     })
 
+    server.get('/cnode', (req, res)=> {
+        return app.render(req, res, '/cnode/index', req.query)
+    })
+
+    server.get('/example', (req, res)=> {
+        return app.render(req, res, '/example/index', req.query)
+    })
+
     server.get('*', (req, res)=> {
         return handle(req, res)
     })

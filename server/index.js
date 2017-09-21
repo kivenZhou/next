@@ -24,4 +24,17 @@ const consumeInfo = async (code)=> {
     }
 }
 
-export default { consumeList, consumeInfo }
+//  cnode首页
+const cnodeList = async (index, type)=> {
+    const res = await getFetch(urlPath.cnodeList, {
+        page: index,
+        tab: type,
+        limit: 20,
+        mdrender: 'false'
+    })
+    if(res.success){
+        return res.data
+    }
+}
+
+export default { consumeList, consumeInfo, cnodeList }
