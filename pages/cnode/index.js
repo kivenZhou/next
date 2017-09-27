@@ -42,11 +42,11 @@ export default class Index extends Component {
         })
     }
     componentDidUpdate() {
-        console.log('update')
+        
     }
     async onTabCallback(key) {
-        // this.refs.lv.refs.listview.scrollProperties.offset = 0
-        
+        setTimeout(() => this.refs.lv.refs.listview.scrollTo(0, 0), 800); // also work
+        setTimeout(() => this.refs.lv.scrollTo(0, 0), 800); // recommend usage
         Toast.loading('加载中...', 5, () => {})
         switch (key) {
             case '1':
@@ -76,7 +76,6 @@ export default class Index extends Component {
         await this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.initData),
         });
-        this.refs.lv.refs.listview.refs.listviewscroll.refs.ScrollView.scrollTop = 0
     }
     onEndReached = async (event) => {
         // if(pageIndex >= this.state.pages){

@@ -9,12 +9,12 @@ import Navbar from '../../components/cnode/Navbar'
 
 
 function MyBody(props) {
-  return (
-    <div className="am-list-body my-body">
-      <span style={{ display: 'none' }}>you can custom body wrap element</span>
-      {props.children}
-    </div>
-  );
+    return (
+        <div className="am-list-body my-body">
+          <span style={{ display: 'none' }}>you can custom body wrap element</span>
+          {props.children}
+        </div>
+    );
 }
 
 const data = [
@@ -40,7 +40,16 @@ const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
 
-class Demo extends React.Component {
+export default class Demo extends React.Component {
+  static async getInitialProps() {
+      // Toast.loading('加载中...', 5, () => {});
+      const res = await server.cnodeList(1, 'all')
+      // const ooo = res.data
+      Toast.hide()
+      return {
+          shows: res
+      }
+  }
   constructor(props) {
     super(props);
     const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
@@ -78,6 +87,7 @@ class Demo extends React.Component {
     this.state = {
       dataSource: dataSource.cloneWithRowsAndSections(this.dataBlob, this.sectionIDs, this.rowIDs),
       isLoading: true,
+      height: 0
     };
   }
 
@@ -106,7 +116,6 @@ class Demo extends React.Component {
   // }
 
   onEndReached = (event) => {
-      console.log(this.refs.lv.refs.listview.scrollProperties.offset)
     // load new data
     // hasMore: from backend data, indicates whether it is the last page, here is false
     if (this.state.isLoading && !this.state.hasMore) {
@@ -153,35 +162,35 @@ class Demo extends React.Component {
       );
     };
 
-    return (<div style={{ margin: '0 auto', width: '96%' }}>
-      <ListView ref="lv"
-        dataSource={this.state.dataSource}
-        renderHeader={() => <span>header</span>}
-        renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
-          {this.state.isLoading ? 'Loading...' : 'Loaded'}
-        </div>)}
-        renderSectionHeader={sectionData => (
-          <div>{`Task ${sectionData.split(' ')[1]}`}</div>
-        )}
-        renderBodyComponent={() => <MyBody />}
-        renderRow={row}
-        renderSeparator={separator}
-        className="fortest"
-        style={{
-          height: '600px',
-          overflow: 'auto',
-          border: '1px solid #ddd',
-          margin: '0.1rem 0',
-        }}
-        pageSize={4}
-        onScroll={() => { console.log('scroll'); }}
-        scrollRenderAheadDistance={500}
-        scrollEventThrottle={200}
-        onEndReached={this.onEndReached}
-        onEndReachedThreshold={10}
-      />
-    </div>);
+    return (
+        <div style={{ margin: '0 auto', width: '96%' }}>
+        <ListView ref="lv"
+          dataSource={this.state.dataSource}
+          renderHeader={() => <span>header</span>}
+          renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
+            {this.state.isLoading ? 'Loading...' : 'Loaded'}
+          </div>)}
+          renderSectionHeader={sectionData => (
+            <div>{`Task ${sectionData.split(' ')[1]}`}</div>
+          )}
+          // renderBodyComponent={() => <MyBody />}
+          renderRow={row}
+          renderSeparator={separator}
+          className="fortest"
+          style={{
+            height: '500px',
+            overflow: 'auto',
+            border: '1px solid #ddd',
+            margin: '0.1rem 0',
+          }}
+          pageSize={4}
+          onScroll={() => { console.log('scroll'); }}
+          scrollRenderAheadDistance={500}
+          scrollEventThrottle={200}
+          onEndReached={this.onEndReached}
+          onEndReachedThreshold={10}
+        />
+      </div>
+  )
   }
 }
-
-export default Demo
