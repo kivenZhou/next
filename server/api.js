@@ -5,7 +5,6 @@ const cnodeHttp = 'https://cnodejs.org/api/v1'
 // }
 const urlParams = {
     consumeList: devHttp + 'integrationPlatform/bids',                            //..借款获取产品详情
-    consumeInfo: devHttp + 'integrationPlatform/bids/',                           //..标的详情
     cnodeList: cnodeHttp + '/topics',
 }
 // const repeatUrl = {}

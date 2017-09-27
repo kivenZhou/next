@@ -7,7 +7,6 @@
             margin-top: 0.2rem;
             img{
                 height: 1rem;
-                display: block;
                 border-radius: 50%;
                 border: 1px solid #e2e2e2;
             }
@@ -40,4 +39,12 @@
 }
 .am-navbar-light{
     border-bottom: 1px solid #108ee9;
+}
+.cnode-user{
+    text-align: center;
+    width: 20%;
+    span{
+        font-size: 0.2rem;
+        color: #666;
+    }
 }

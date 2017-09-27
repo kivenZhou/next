@@ -18,7 +18,7 @@ const consumeList = async (index)=> {
 
 //  散标详情
 const consumeInfo = async (code)=> {
-    const res = await getFetch(urlPath.consumeInfo + code, {})
+    const res = await getFetch(urlPath.consumeList + code, {})
     if(res.code == '200000'){
         return res.data
     }

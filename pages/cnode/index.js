@@ -45,8 +45,10 @@ export default class Index extends Component {
         
     }
     async onTabCallback(key) {
-        setTimeout(() => this.refs.lv.refs.listview.scrollTo(0, 0), 800); // also work
-        setTimeout(() => this.refs.lv.scrollTo(0, 0), 800); // recommend usage
+        this.refs.lv.refs.listview.scrollTo(0, 0)
+        this.refs.lv.scrollTo(0, 0)
+        // setTimeout(() => this.refs.lv.refs.listview.scrollTo(0, 0), 800); // also work
+        // setTimeout(() => this.refs.lv.scrollTo(0, 0), 800); // recommend usage
         Toast.loading('加载中...', 5, () => {})
         switch (key) {
             case '1':
@@ -78,6 +80,7 @@ export default class Index extends Component {
         });
     }
     onEndReached = async (event) => {
+        //  首先判断出this.state.pages(总页数)，然后根据当前页去做比较，判断是否还有下一页
         // if(pageIndex >= this.state.pages){
         //     this.setState({
         //         hasMore: false,
@@ -131,7 +134,10 @@ export default class Index extends Component {
                     <div className="cnode-container">
                         <ul>
                             <li>
-                                <img src={rowData.author.avatar_url} />
+                                <div className="cnode-user">
+                                    <img src={rowData.author.avatar_url} />
+                                    <span>{rowData.author.loginname}</span>
+                                </div>
                                 <div className="cnode-title">
                                     <p><span className={ rowData.top ? 'redbg' : 'hide' }>置顶</span><span>{rowData.tab == 'share' ? '分享' : rowData.tab == 'ask' ? '问答' : rowData.tab == 'good' ? '精华' : '招聘'}</span>{rowData.title}</p>
                                     <p className="fz02 grey">发布日期：{rowData.create_at}</p>
