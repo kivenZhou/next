@@ -9,15 +9,7 @@ export default class NavBar extends Component {
         super(props)
     }
     tabClick(key) {
-        this.returnTop()
         this.props.callbacks(key)
-    }
-    returnTop() {
-        console.log(document.getElementsByClassName('list-view-section-body'))
-        setTimeout(()=> {
-            if (document.getElementsByClassName('cnodeHeight')[0])
-                document.getElementsByClassName('cnodeHeight')[0].scrollTop = 0;
-        }, 100)
     }
     render() {
         return (

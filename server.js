@@ -25,6 +25,12 @@ app.prepare()
         return app.render(req, res, '/cnode/index', req.query)
     })
 
+    server.get('/cnode/article/:id', (req, res)=> {
+        const actualPage = '/cnode/article'
+        const queryParams = { id: req.params.id }
+        app.render(req, res, actualPage, queryParams)
+    })
+
     server.get('/example', (req, res)=> {
         return app.render(req, res, '/example/index', req.query)
     })

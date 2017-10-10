@@ -14,7 +14,6 @@ body,html{
     height:100%;
     width:100%;
     position:relative;
-    overflow: hidden;
 }
 body,dd,dl,h1,h2,h3,h4,h5,h6,p{
     margin:0;
@@ -76,11 +75,14 @@ ol,ul{
 .grey{
     color: #666;
 }
+.blue{
+    color: #108ee9;
+}
 .red{
     color: #f00;
 }
-.fz02{
-    font-size: 0.2rem;
+.fz025{
+    font-size: 0.25rem;
 }
 .fs15{
     font-size: 0.5rem;

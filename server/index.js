@@ -37,4 +37,14 @@ const cnodeList = async (index, type)=> {
     }
 }
 
-export default { consumeList, consumeInfo, cnodeList }
+//  cnode文章页
+const cnodeArticle = async (id)=> {
+    const res = await getFetch(urlPath.cnodeArticle + id, {
+        mdrender: true
+    })
+    if(res.success){
+        return res.data
+    }
+}
+
+export default { consumeList, consumeInfo, cnodeList, cnodeArticle }

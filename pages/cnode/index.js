@@ -134,16 +134,19 @@ export default class Index extends Component {
                     <div className="cnode-container">
                         <ul>
                             <li>
-                                <div className="cnode-user">
-                                    <img src={rowData.author.avatar_url} />
-                                    <span>{rowData.author.loginname}</span>
-                                </div>
-                                <div className="cnode-title">
-                                    <p><span className={ rowData.top ? 'redbg' : 'hide' }>置顶</span><span>{rowData.tab == 'share' ? '分享' : rowData.tab == 'ask' ? '问答' : rowData.tab == 'good' ? '精华' : '招聘'}</span>{rowData.title}</p>
-                                    <p className="fz02 grey">发布日期：{rowData.create_at}</p>
-                                    <p className="grey">回复／浏览量：{rowData.reply_count + '／' +  rowData.visit_count}</p>
-                                </div>
-                                
+                                <Link as={`/cnode/article/${rowData.id}`} href={`/cnode/article?id=${rowData.id}`}>
+                                    <div className="cnode-flex">
+                                        <div className="cnode-user">
+                                            <img src={rowData.author.avatar_url} />
+                                            <span>{rowData.author.loginname}</span>
+                                        </div>
+                                        <div className="cnode-title">
+                                            <p><span className={ rowData.top ? 'redbg' : 'hide' }>置顶</span><span className={ rowData.good ? 'redbg' : 'hide' }>精华</span><span>{rowData.tab == 'share' ? '分享' : rowData.tab == 'ask' ? '问答' : rowData.tab == 'good' ? '精华' : rowData.tab == 'job' ? '招聘' : '测试'}</span>{rowData.title}</p>
+                                            <p className="fz025 grey">发布日期：{rowData.create_at}</p>
+                                            <p className="fz025 grey">回复／浏览量：{rowData.reply_count + '／' +  rowData.visit_count}</p>
+                                        </div>
+                                    </div>
+                                </Link>
                             </li>
                         </ul>
                     </div>
