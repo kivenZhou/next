@@ -115,14 +115,11 @@ export default class Index extends Component {
         });
         console.log('onRefresh');
     }
-    onContentSizeChange = async ()=> {
-        console.log(222)
-    }
     render() {
         if(this.initData.length == 0){
             return (
                 <div>
-                    <Header />
+                    <Header title="cNode" show='1' />
                     <Navbar callbacks={ this.onTabCallback.bind(this) } />
                     <Loading />加载中
                 </div>
@@ -155,7 +152,7 @@ export default class Index extends Component {
         }
         return (
             <div>
-                <Header title="cNode" />
+                <Header title="cNode" show='1'/>
                 <Navbar callbacks={ this.onTabCallback.bind(this) } />
                 <ListView
                     ref="lv"

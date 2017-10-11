@@ -17,7 +17,7 @@ export default class Headers extends Component {
                     <link rel='stylesheet' type='text/css' href='../../static/css/public.css' />
                     <style dangerouslySetInnerHTML={{ __html: cnodeScss }} />
                 </Head>
-                <Header title={ this.props.title } />
+                <Header title={ this.props.title } show={ this.props.show } />
             </div>
         )
     }

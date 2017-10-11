@@ -25,7 +25,7 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "antd-mobile": "^1.6.5",
+    "antd-mobile": "^1.6.11",
     "autoprefixer": "^7.1.4",
     "babel-plugin-import": "^1.4.0",
     "babel-plugin-module-resolver": "^2.7.1",

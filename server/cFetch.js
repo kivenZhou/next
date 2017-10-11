@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 require('es6-promise').polyfill()
 import { getCookie } from '../tool/Util'
+import { Toast } from 'antd-mobile'
   
 //发送GET请求  
 export function getFetch(url, params){  
@@ -45,14 +46,11 @@ export function postFetch(url, params, type){
     return new Promise((resolve, reject)=> {
         fetch(url, {  
             method : typeStyle,  
+            mode: 'cors', 
             headers: {
-                "Content-Type": "application/json;charset=UTF-8",
-                token: getCookie('userToken'),
-                Accept: 'application/json;charset=UTF-8',
-                clientId: 'XXD_FRONT_END',
-                clientTime: new Date().getTime()
+                "Content-Type": "application/json;charset=UTF-8"
             },
-            credentials: 'include',
+            // credentials: 'include',
             body : JSON.stringify(params)  
         }).then(function(res){  
             if(res.ok){  
@@ -60,11 +58,16 @@ export function postFetch(url, params, type){
                     resolve(data);  
                 })  
             }else{  
-                console.log('请求失败');  
-                reject();  
+                res.json().then(function(data){
+                    if(data.error_msg){
+                        Toast.info(data.error_msg, 2);
+                    }
+                    console.log('请求失败1')
+                    reject(); 
+                })
             }  
         }, function(e){  
-            console.log('请求失败');  
+            console.log('请求失败2');  
             reject();  
         }) 
     })

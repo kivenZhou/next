@@ -1,5 +1,8 @@
-import { getFetch } from './cFetch'
+import { getFetch, postFetch } from './cFetch'
 import urlPath from './api'
+import { getCookie } from '../tool/Util'
+import { Toast } from 'antd-mobile'
+
 
 //  散标列表
 const consumeList = async (index)=> {
@@ -47,4 +50,32 @@ const cnodeArticle = async (id)=> {
     }
 }
 
-export default { consumeList, consumeInfo, cnodeList, cnodeArticle }
+//  cnode用户中心
+const cnodeUser = async ()=> {
+    const res = await postFetch(urlPath.cnodeUser, {
+        accesstoken: getCookie('accesstoken') || ''
+    })
+    if(res.success){
+        const resUser = await getFetch(urlPath.cnodeUserInfo + res.loginname, {})
+        if(resUser.success){
+            return resUser.data
+        }
+    }else{
+        Toast.info('accesstoken 无效', 1);
+    }
+}
+
+//  cnode发布主题
+const cnodeTopics = async (obj)=> {
+    const res = await postFetch(urlPath.cnodeTopics, {
+        accesstoken: getCookie('accesstoken') || '',
+        title: obj.title,
+        tab: obj.tab.join(),
+        content: obj.content
+    })
+    if(res.success){
+        return res
+    }
+}
+
+export default { consumeList, consumeInfo, cnodeList, cnodeArticle, cnodeUser, cnodeTopics }

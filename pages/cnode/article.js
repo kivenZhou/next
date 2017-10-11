@@ -19,7 +19,7 @@ export default class Article extends Component {
                     <div className="cnode-atop">
                         <h3>{list.title}</h3>
                         <div className="cnode-tip">
-                            <span className={ list.top ? 'redbg' : 'hide' }>置顶</span><span className={ list.good ? 'redbg' : 'hide' }>精华</span><span>{list.tab == 'share' ? '分享' : list.tab == 'ask' ? '问答' : list.tab == 'good' ? '精华' : '招聘'}</span>
+                            <span className={ list.top ? 'redbg' : 'hide' }>置顶</span><span className={ list.good ? 'redbg' : 'hide' }>精华</span><span>{list.tab == 'share' ? '分享' : list.tab == 'ask' ? '问答' : list.tab == 'good' ? '精华' : list.tab == 'job' ? '招聘' : '测试'}</span>
                             <b><i className="blue">{list.author.loginname}</i>  {list.create_at.substr(0,10)} 发布</b>
                             <p>{list.visit_count}条访问量  {list.reply_count}条回复</p>
                         </div>

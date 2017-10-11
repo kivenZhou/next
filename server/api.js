@@ -7,6 +7,9 @@ const urlParams = {
     consumeList: devHttp + 'integrationPlatform/bids',                            //..借款获取产品详情
     cnodeList: cnodeHttp + '/topics',
     cnodeArticle: cnodeHttp + '/topic/',
+    cnodeUser: cnodeHttp + '/accesstoken',
+    cnodeUserInfo: cnodeHttp + '/user/',
+    cnodeTopics: cnodeHttp + '/topics',
 }
 // const repeatUrl = {}
 // for(let i in urlParams){
