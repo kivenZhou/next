@@ -9,6 +9,8 @@ class Create extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            topic_id: '',
+            headTitle: '新建主题',
             title: '',
             tab: ['dev'],
             content: ''
@@ -17,12 +19,36 @@ class Create extends Component {
         this.handleContent = this.handleContent.bind(this)
         this.publish = this.publish.bind(this)
     }
+    async componentDidMount() {
+        if(this.props.url.query.id){
+            const id = this.props.url.query.id
+            const res = await server.cnodeArticle(id, false)
+            this.setState({
+                topic_id: res.id,
+                headTitle: '编辑主题',
+                title: res.title,
+                tab: res.tab.split(),
+                content: res.content
+            })
+        }
+    }
     async publish() {
-        // console.log(this.state)
-        const res = await server.cnodeTopics(this.state)
-        if(res.success){
-            await Toast.info('发布成功', 2);
-            Router.push('/cnode/user')
+        if(!this.state.topic_id){
+            const res = await server.cnodeTopics(this.state)
+            if(res.success){
+                await Toast.info('发布成功', 2)
+                setTimeout(()=> {
+                    Router.push('/cnode/user')
+                },1000)
+            }
+        }else{
+            const res = await server.cnodeUpdate(this.state)
+            if(res.success){
+                await Toast.info('编辑成功', 2)
+                setTimeout(()=> {
+                    Router.push('/cnode/user')
+                }, 1000)
+            }
         }
     }
     handleTitle(val) {
@@ -53,8 +79,8 @@ class Create extends Component {
         }]
         return (
             <div className="new-topic">
-                <Header title="新建主题" />
-                <List renderHeader={() => '请按照规范新建主题'}>
+                <Header title={ this.state.headTitle } />
+                <List renderHeader={() => '请按照规范新建(编辑)主题'}>
                 <InputItem
                   placeholder="请输入主题名称"
                   autoFocus

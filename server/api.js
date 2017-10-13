@@ -10,6 +10,11 @@ const urlParams = {
     cnodeUser: cnodeHttp + '/accesstoken',
     cnodeUserInfo: cnodeHttp + '/user/',
     cnodeTopics: cnodeHttp + '/topics',
+    cnodeUpdate: cnodeHttp + '/topics/update',
+    cnodeCollect: cnodeHttp + '/topic_collect/collect',
+    cnodeDeCollect: cnodeHttp + '/topic_collect/de_collect',
+    cnodeCollectList: cnodeHttp + '/topic_collect/',
+    cnodeReply: cnodeHttp + '/topic/',
 }
 // const repeatUrl = {}
 // for(let i in urlParams){

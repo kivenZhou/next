@@ -41,9 +41,10 @@ const cnodeList = async (index, type)=> {
 }
 
 //  cnode文章页
-const cnodeArticle = async (id)=> {
+const cnodeArticle = async (id, status)=> {
     const res = await getFetch(urlPath.cnodeArticle + id, {
-        mdrender: true
+        mdrender: status,
+        accesstoken: getCookie('accesstoken') || ''
     })
     if(res.success){
         return res.data
@@ -78,4 +79,65 @@ const cnodeTopics = async (obj)=> {
     }
 }
 
-export default { consumeList, consumeInfo, cnodeList, cnodeArticle, cnodeUser, cnodeTopics }
+//  cnode编辑主题
+const cnodeUpdate = async (obj)=> {
+    const res = await postFetch(urlPath.cnodeUpdate, {
+        accesstoken: getCookie('accesstoken') || '',
+        topic_id: obj.topic_id,
+        title: obj.title,
+        tab: obj.tab.join(),
+        content: obj.content
+    })
+    if(res.success){
+        return res
+    }
+}
+
+//  cnode收藏主题
+const cnodeCollect = async (obj)=> {
+    const res = await postFetch(urlPath.cnodeCollect, {
+        accesstoken: getCookie('accesstoken') || '',
+        topic_id: obj.topic_id,
+    })
+    if(res.success){
+        return res
+    }else{
+        Toast.info('收藏失败', 2);
+        return {
+            success: false
+        }
+    }
+}
+
+//  cnode取消收藏主题
+const cnodeDeCollect = async (obj)=> {
+    const res = await postFetch(urlPath.cnodeDeCollect, {
+        accesstoken: getCookie('accesstoken') || '',
+        topic_id: obj.topic_id,
+    })
+    if(res.success){
+        return res
+    }
+}
+
+//  cnode收藏主题列表
+const cnodeCollectList = async (name)=> {
+    const res = await getFetch(urlPath.cnodeCollectList + name, {})
+    if(res.success){
+        return res
+    }
+}
+
+//  cnode主题评论
+const cnodeReply = async (obj)=> {
+    const res = await postFetch(urlPath.cnodeReply + obj.topic_id + '/replies', {
+        accesstoken: getCookie('accesstoken') || '',
+        content: obj.content,
+        reply_id: obj.reply_id || ''
+    })
+    if(res.success){
+        return res
+    }
+}
+
+export default { consumeList, consumeInfo, cnodeList, cnodeArticle, cnodeUser, cnodeTopics, cnodeUpdate, cnodeCollect, cnodeDeCollect, cnodeCollectList, cnodeReply }

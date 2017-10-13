@@ -3,6 +3,7 @@
 }
 .cnode-container{
     min-height: 100%;
+    background: #fff;
     ul{
         li{
             padding: 0.2rem;
@@ -57,24 +58,36 @@
     .cnode-atop{
         h3{
             font-size: 0.45rem;
-        }
-        span{
-            font-size: 0.25rem;
-            padding: 2px 3px;
-            background: #108ee9;
-            margin-right: 0.1rem;
-            color: #fff;
-            border-radius: 3px;
+            &.cnode-firsttip{
+                span{
+                    float: left;
+                    margin-top: 5px;
+                    font-size: 0.25rem;
+                    padding: 2px 3px;
+                    background: #108ee9;
+                    margin-right: 0.1rem;
+                    color: #fff;
+                    border-radius: 3px;
+                }
+            }
         }
         b{
             font-size: 0.25rem;
             color: #666;
             font-weight: normal;
             float: right;
-            padding-top: 5px;
         }
         .cnode-tip{
             margin-top: 0.3rem;
+            span{
+                margin-top: 5px;
+                font-size: 0.25rem;
+                padding: 6px;
+                background: green;
+                margin-right: 0.1rem;
+                color: #fff;
+                border-radius: 3px;
+            }
             i{
                 font-style: normal;
             }
@@ -212,4 +225,7 @@ table{
         margin-top: 0;
         border-top: 1px solid #ddd!important;
     }
+}
+.graybg{
+    background: gray!important;
 }

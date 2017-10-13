@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import server from '../../server/index'
 import Header from '../../header/cnodeHead'
-import { List, Button, Grid } from 'antd-mobile'
+import { SwipeAction, List, Button, Grid } from 'antd-mobile'
 import Router from 'next/router'
 import Link from 'next/link'
 import Loading from '../../tool/Loading'
@@ -17,22 +17,34 @@ class User extends Component {
         this.state = {
             userInfo: ''
         }
+        this.eachUrl = this.eachUrl.bind(this)
     }
     async componentDidMount() {
         const res = await server.cnodeUser()
-        console.log(res)
         this.setState({
             userInfo: res
         })
     }
     eachUrl(el, index) {
-        if(index == 0){
-            Router.push('/cnode/create')
+        switch (index) {
+            case 0:
+                Router.push('/cnode/create')
+                break
+            case 1:
+                Router.push({pathname:'/cnode/collect', query: { name: this.state.userInfo.loginname }})
+                break
+            default :
         }
     }
     layout() {
         delCookie('accesstoken')
         Router.push('/cnode')
+    }
+    handleClick() {
+
+    }
+    edit(item) {
+        Router.push({pathname: '/cnode/create', query: {id: item.id}})
     }
     render() {
         const { userInfo } = this.state
@@ -60,11 +72,30 @@ class User extends Component {
                 {
                     userInfo.recent_topics.map((item)=> {
                         return (
-                            <Link key={item.id} as={`/cnode/article/${item.id}`} href={`/cnode/article?id=${item.id}`}>
-                                <Item arrow="horizontal" multipleLine platform="android" onClick={() => {}}>
-                                    {item.title} <Brief>最后回复时间：{item.last_reply_at}</Brief>
-                                </Item>
-                            </Link>
+                            <SwipeAction
+                                key={item.id}
+                                style={{ backgroundColor: 'gray' }}
+                                autoClose
+                                right={[
+                                {
+                                    text: '取消',
+                                    onPress: () => console.log('cancel'),
+                                    style: { backgroundColor: '#ddd', padding: '0 0.3rem', color: 'white' },
+                                },
+                                {
+                                    text: '编辑',
+                                    onPress: () => this.edit(item),
+                                    style: { backgroundColor: '#108ee9', padding: '0 0.3rem', color: 'white' },
+                                },
+                                ]}
+                            >
+                                <Link as={`/cnode/article/${item.id}`} href={`/cnode/article?id=${item.id}`}>
+                                    <List.Item arrow="horizontal" multipleLine platform="android" onClick={() => {}}>
+                                        {item.title} <Brief>最后回复时间：{item.last_reply_at}</Brief>
+                                    </List.Item>
+                                </Link>
+                            </SwipeAction>
+                            
                         )
                     })
                 }
