@@ -15,7 +15,7 @@ class Index extends Component {
             <div>
                 <List renderHeader={() => 'Project List'} className="my-list">
                     <Item arrow="horizontal" onClick={ this.routerGo }>
-                        Consume Page
+                        <span className="red">Consume Page</span>
                     </Item>
                     <Item arrow="horizontal" onClick={ this.routerNode }>
                         CNode Page
