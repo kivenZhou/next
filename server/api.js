@@ -1,10 +1,10 @@
 // let devHttp = '/'
 // if(process.env.NODE_ENV == 'development'){
-const devHttp = 'http://localhost:8080/time/'
+const devHttp = 'http://localhost:8080/test/'
 const cnodeHttp = 'https://cnodejs.org/api/v1'
 // }
 const urlParams = {
-    consumeList: devHttp + 'integrationPlatform/bids',                            //..借款获取产品详情
+    consumeList: devHttp + '/integrationPlatform/bids/',                            //..借款获取产品详情
     cnodeList: cnodeHttp + '/topics',
     cnodeArticle: cnodeHttp + '/topic/',
     cnodeUser: cnodeHttp + '/accesstoken',
